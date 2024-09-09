@@ -1,8 +1,9 @@
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test'
+import * as dotenv from 'dotenv'
 
-require('dotenv').config();
-const baseUrl = process.env.BASE_URL
-module.exports = defineConfig({
+dotenv.config()
+
+export default defineConfig({
     testDir: 'playwright/tests',
     fullyParallel: true,
     retries: 1,
@@ -12,14 +13,13 @@ module.exports = defineConfig({
     maxFailures: 2,
     timeout: 3000,
     use: {
-        baseURL: baseUrl,
+        baseURL: process.env.BASE_URL || 'http://localhost',
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
     },
-
     projects: [
         {
-            name: 'chromium',
+            name: 'e2e',
             use: { ...devices['Desktop Chrome'] },
         },
     ],
