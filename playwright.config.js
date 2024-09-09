@@ -1,24 +1,20 @@
-// @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
 require('dotenv').config();
 const baseUrl = process.env.BASE_URL
 module.exports = defineConfig({
-    testDir: './tests',
+    testDir: 'playwright/tests',
     fullyParallel: true,
-    /* Fail the build on CI if you accidentally left test.only in the source code. */
-    forbidOnly: !!process.env.CI,
-    /* Retry on CI only */
-    retries: process.env.CI ? 2 : 0,
-    /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 1 : undefined,
-    /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-
-
+    retries: 1,
+    workers: 1,
     reporter: 'html',
+    expect: { timeout: 2000 },
+    maxFailures: 2,
+    timeout: 3000,
     use: {
         baseURL: baseUrl,
         trace: 'on-first-retry',
+        screenshot: 'only-on-failure',
     },
 
     projects: [
