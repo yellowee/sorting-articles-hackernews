@@ -56,26 +56,16 @@ This means whether we hire you is based on how you do during our interview proce
 
 We've found that our best hires have been the most enthusiastic throughout our process. If you are very excited about working here, please feel free to go above and beyond on this assignment.
 
-# C-MORE-automation-task
+## QA Wolf Automation Task
 
-## Installing dependencies
+### Installing dependencies
 
 `npm i`
 
-## Format code
+### Format code
 
 `npm run prettier`
 
-## Running tests
-
-### Running tests in GUI
-
- `npm run cy-open`
-
-### Headless
-
- `npm run cy-run`
-
-## Check for Typescript errors
+### Check for Typescript errors
 
 `npm run compile`
