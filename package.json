@@ -1,25 +1,26 @@
 {
-  "name": "qa_wolf_take_home_task",
-  "version": "1.0.0",
-  "main": "index.js",
-  "locale": "EN",
-  "author": "Renata Gajzlerowicz",
-  "license": "ISC",
-  "scripts": {
-    "pw-headless": "npx playwright open",
-    "pw-ui": "npx playwright open --ui",
-    "prettier": "prettier --write .",
-    "compile": "tsc --noEmit --skipLibCheck"
-  },
-  "dependencies": {
-    "@faker-js/faker": "8.4.1",
-    "dotenv": "16.4.5",
-    "playwright": "1.39.0",
-    "typescript": "5.3.3"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.39.0",
-    "@types/node": "^20.8.9",
-    "prettier": "3.3.3"
-  }
+    "name": "qa_wolf_take_home_task",
+    "version": "1.0.0",
+    "main": "index.js",
+    "locale": "EN",
+    "author": "Renata Gajzlerowicz",
+    "license": "ISC",
+    "scripts": {
+        "pw-headless": "npx playwright test",
+        "pw-ui": "npx playwright test --ui",
+        "prettier": "prettier --write .",
+        "compile": "tsc --noEmit --skipLibCheck"
+    },
+    "dependencies": {
+        "@faker-js/faker": "8.4.1",
+        "date-fns": "^3.6.0",
+        "dotenv": "16.4.5",
+        "playwright": "1.39.0",
+        "typescript": "5.3.3"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.39.0",
+        "@types/node": "^20.8.9",
+        "prettier": "3.3.3"
+    }
 }

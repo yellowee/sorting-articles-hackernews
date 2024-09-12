@@ -1,10 +1,13 @@
 import { defineConfig, devices } from '@playwright/test'
 import * as dotenv from 'dotenv'
+import path from 'path'
 
-dotenv.config()
+dotenv.config({ path: path.resolve(__dirname, '.env') })
+const baseUrl = process.env.BASE_URL
 
 export default defineConfig({
     testDir: 'playwright/tests',
+    testMatch: /.*spec.ts/,
     fullyParallel: true,
     retries: 1,
     workers: 1,
@@ -13,7 +16,7 @@ export default defineConfig({
     maxFailures: 2,
     timeout: 3000,
     use: {
-        baseURL: process.env.BASE_URL || 'http://localhost',
+        baseURL: baseUrl,
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
     },
@@ -24,4 +27,3 @@ export default defineConfig({
         },
     ],
 })
-
